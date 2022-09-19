@@ -14,7 +14,7 @@ export const { styled, css, globalCss, getCssText, keyframes } = createStitches(
     },
     fontSizes: { 1: '18px' },
     fonts: {
-      untitled: 'Untitled Sans, apple-system, sans-serif',
+      untitled: 'font-family: "Rubik", sans-serif',
       mono: 'Söhne Mono, menlo, monospace',
     },
     fontWeights: {

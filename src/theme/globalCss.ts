@@ -6,6 +6,9 @@ const useGlobalStyles = globalCss({
     padding: 0,
     boxSizing: 'border-box',
   },
+  body: {
+    fontFamily: '$untitled',
+  },
 });
 
 export default useGlobalStyles;
