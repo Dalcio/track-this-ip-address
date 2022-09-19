@@ -1,6 +1,6 @@
 import { createStitches } from '@stitches/react';
 
-export const { styled, css, globalCss, getCssText } = createStitches({
+export const { styled, css, globalCss, getCssText, keyframes } = createStitches({
   theme: {
     colors: {
       white: 'hsl(255,100%,100%)',
@@ -27,17 +27,6 @@ export const { styled, css, globalCss, getCssText } = createStitches({
     },
   },
   media: {
-    sm: '375px',
-    md: '1440px',
-  },
-  utils: {
-    largerThen: (value: 'sm' | 'md' | number) =>
-      `@media screen and (min-width: ${
-        value === 'sm' ? 375 : (value === 'md' && 1440) || value
-      })px`,
-    smallerThen: (value: 'sm' | 'md' | number) =>
-      `@media screen and (max-width: ${
-        value === 'sm' ? 375 : (value === 'md' && 1440) || value
-      })px`,
+    bp1: '(min-width: 768px)',
   },
 });

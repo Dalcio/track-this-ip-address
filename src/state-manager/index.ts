@@ -4,6 +4,12 @@ import { Action, State } from './types';
 const initialState: State = {
   location: undefined,
   ipInfo: undefined,
+  // ipInfo: {
+  //   address: 'some',
+  //   ip: '131234134',
+  //   isp: 'afdqasfas',
+  //   timeZone: 'America/New_York',
+  // },
 };
 
 const reducer: Reducer<State, Action> = (state, action) => {

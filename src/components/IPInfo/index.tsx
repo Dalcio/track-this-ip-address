@@ -1,28 +1,29 @@
 import { IPInfo } from 'state-manager/types';
-import { styled } from 'theme';
+import { InfoItemContainer, IPInfoContainer } from './IPInfo.styles';
 
 type IPInfoProps = {
-  data?: IPInfo;
+  data: IPInfo;
 };
 
-const IPInfoContainer = styled('div', {
-  backgroundColor: '$white',
-  gridRow: '-4 / -2',
-  position: 'relative',
-  justifySelf: 'center',
-});
-
-const useIPInfo = () => {};
-
-const IPInfo = ({ data }: IPInfoProps) => {
-  useIPInfo();
-
-  return (
-    <IPInfoContainer>
-      Map
-      {data && <h1>{JSON.stringify(data)}</h1>}
-    </IPInfoContainer>
-  );
+type InfoItemProps = {
+  item: string;
+  value?: string;
 };
+
+const InfoItem = ({ item, value }: InfoItemProps) => (
+  <InfoItemContainer>
+    <p>{item}</p>
+    {(value && <h2>{value}</h2>) || <div />}
+  </InfoItemContainer>
+);
+
+const IPInfo = ({ data }: IPInfoProps) => (
+  <IPInfoContainer>
+    <InfoItem item="ip address" value={data?.ip} />
+    <InfoItem item="location" value={data?.address} />
+    <InfoItem item="timezone" value={data?.timeZone} />
+    <InfoItem item="isp" value={data?.isp} />
+  </IPInfoContainer>
+);
 
 export default IPInfo;

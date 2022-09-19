@@ -26,7 +26,7 @@ export const HeaderFormContainer = styled('form', {
 
   input: {
     fontSize: '$1',
-    padding: '22px',
+    padding: '18px',
     flexGrow: 1,
     border: 'none',
 
@@ -38,8 +38,8 @@ export const HeaderFormContainer = styled('form', {
   button: {
     backgroundColor: '#000',
     border: 'none',
-    padding: '$3',
-    width: '70px',
+    height: '100%',
+    width: '56px',
     color: 'White',
 
     '&:hover': {

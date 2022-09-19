@@ -1,13 +1,13 @@
 export type Location = {
-  lat: number;
-  long: number;
+  lat?: number;
+  long?: number;
 };
 
 export type IPInfo = {
-  ip: string;
-  timeZone: string;
-  isp: string;
-  address: string;
+  ip?: string;
+  timeZone?: string;
+  isp?: string;
+  address?: string;
 };
 
 export type State = {
