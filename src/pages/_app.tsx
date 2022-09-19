@@ -1,29 +1,17 @@
-import { MantineProvider, Stack, Text } from '@mantine/core';
-import useDocumentIsReady from 'hooks/useDocumentIsReady';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import theme from 'theme';
-import GlobalStyles from 'theme/globalStyles';
+import useGlobalStyles from 'theme/globalCss';
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const isReady = useDocumentIsReady();
+  useGlobalStyles();
 
   return (
     <>
       <Head>
-        <title>URL Shortening</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <title>Ip Address Tracker</title>
       </Head>
-      <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
-        <GlobalStyles />
-        {isReady ? (
-          <Component {...pageProps} />
-        ) : (
-          <Stack align="center" justify="center" style={{ height: '100vh' }}>
-            <Text>The page is loading</Text>
-          </Stack>
-        )}
-      </MantineProvider>
+
+      <Component {...pageProps} />
     </>
   );
 };

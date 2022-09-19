@@ -1,20 +1,6 @@
-import {
-  AdvancedStatistics,
-  Cover,
-  BoostYourLinksToday,
-  Footer,
-  Header,
-  Shorten,
-} from 'components/home';
-
 const HomePage = () => (
   <>
-    <Header />
-    <Cover />
-    <Shorten />
-    <AdvancedStatistics />
-    <BoostYourLinksToday />
-    <Footer />
+    <h1>Home</h1>
   </>
 );
 
