@@ -24,8 +24,8 @@
       "hooks/*": ["src/hooks/*"],
       "theme": ["src/theme"],
       "theme/*": ["src/theme/*"],
-      "store": ["src/store"],
-      "store/*": ["src/store/*"]
+      "state-manager": ["src/state-manager"],
+      "state-manager/*": ["src/state-manager/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
