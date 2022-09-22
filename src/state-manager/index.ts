@@ -1,38 +1,46 @@
 import { Reducer, useReducer } from 'react';
+import { getIPInfoWithDomain, getIPInfoWithIp } from './fetchPayload';
 import { Action, State } from './types';
 
 const initialState: State = {
   location: undefined,
   ipInfo: undefined,
-  // ipInfo: {
-  //   address: 'some',
-  //   ip: '131234134',
-  //   isp: 'afdqasfas',
-  //   timeZone: 'America/New_York',
-  // },
+  loading: false,
 };
 
-const reducer: Reducer<State, Action> = (state, action) => {
+const reducer: Reducer<State, Action> = (prevState, action) => {
   switch (action.type) {
-    case 'track-ip':
-      return state;
+    case 'track':
+      return { ...action.payload, loading: false };
+    case 'loading':
+      return { ...prevState, loading: true };
     default:
-      return state;
+      return prevState;
   }
 };
 
 export const useStateManager = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const trackThis = (payload: string) => {
-    dispatch({
-      type: 'track-ip',
-      payload,
-    });
+  const trackThisIP = async (ip: string) => {
+    dispatch({ type: 'loading' });
+
+    const payload = await getIPInfoWithIp(ip);
+
+    dispatch({ type: 'track', payload });
+  };
+
+  const trackThisDomain = async (domain: string) => {
+    dispatch({ type: 'loading' });
+
+    const payload = await getIPInfoWithDomain(domain);
+
+    dispatch({ type: 'track', payload });
   };
 
   return {
     ...state,
-    trackThis,
+    trackThisDomain,
+    trackThisIP,
   };
 };

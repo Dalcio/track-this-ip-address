@@ -7,13 +7,24 @@ export const HeaderContainer = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
-  rowGap: '$3',
   alignItems: 'center',
   padding: '$space$3 $space$3 50px $space$3',
 
   h1: {
     color: '$white',
     fontWeight: '$3',
+  },
+
+  '.error': {
+    color: 'Tomato',
+  },
+
+  'p.error': {
+    width: 'min(100%, 500px)',
+    marginTop: '8px',
+    background: 'white',
+    padding: '6px 20px',
+    borderRadius: '8px',
   },
 });
 
@@ -23,6 +34,7 @@ export const HeaderFormContainer = styled('form', {
   overflow: 'hidden',
   borderRadius: '$1',
   width: 'min(100%, 500px)',
+  marginTop: '$3',
 
   input: {
     fontSize: '$1',
@@ -32,6 +44,11 @@ export const HeaderFormContainer = styled('form', {
 
     '&::placeholder': {
       color: '$veryDarkGray',
+    },
+
+    '&.error': {
+      color: 'Tomato',
+      border: '1px solid Tomato',
     },
   },
 

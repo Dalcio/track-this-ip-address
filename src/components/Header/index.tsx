@@ -1,34 +1,11 @@
 import Image from 'next/image';
-import { ChangeEvent, FormEvent, useState } from 'react';
+
+import { useHeader } from './Header.hooks';
 import { HeaderFormContainer, HeaderContainer } from './Header.styles';
+import { HeaderProps } from './Header.types';
 
-type HeaderProps = {
-  // eslint-disable-next-line no-unused-vars
-  trackThis: (str: string) => void;
-};
-
-const useHeader = (trackThis: HeaderProps['trackThis']) => {
-  const [target, setTarget] = useState<string>('');
-
-  const changeTarget = (evt: ChangeEvent<HTMLInputElement>) => setTarget(evt.target.value);
-
-  const onSubmit = (evt: FormEvent<HTMLFormElement>) => {
-    evt.preventDefault();
-    evt.stopPropagation();
-
-    if (target) {
-      trackThis(target);
-    }
-  };
-
-  return {
-    changeTarget,
-    onSubmit,
-  };
-};
-
-const Header = ({ trackThis }: HeaderProps) => {
-  const { changeTarget, onSubmit } = useHeader(trackThis);
+const Header = ({ trackThisDomain, trackThisIp }: HeaderProps) => {
+  const { changeTarget, error, onSubmit } = useHeader({ trackThisDomain, trackThisIp });
 
   return (
     <HeaderContainer>
@@ -39,11 +16,13 @@ const Header = ({ trackThis }: HeaderProps) => {
           placeholder="Search for any IP address or domain"
           required
           onChange={changeTarget}
+          className={(error && 'error') || undefined}
         />
         <button type="submit">
           <Image src="/images/icon-arrow.svg" alt="" width={11} height={14} />
         </button>
       </HeaderFormContainer>
+      {error && <p className="error">{error}</p>}
     </HeaderContainer>
   );
 };

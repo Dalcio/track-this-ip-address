@@ -4,6 +4,7 @@ export const IPInfoContainer = styled('div', {
   backgroundColor: '$white',
   gridRow: '-4 / -2',
   position: 'relative',
+  zIndex: 10,
   margin: '0 $space$3',
   padding: '$space$3',
   borderRadius: '$1',
